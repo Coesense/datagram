@@ -1,4 +1,5 @@
 var apiSrc;
+var count = 0;
 
 $('.radio').live("click", function(){ 
 	apiSrc = $(this).val();
@@ -23,6 +24,11 @@ function getData(){
 		apiData = jQuery.parseJSON(msg);
 		  $.each(msg, function(index, value) {
 			  $('#main').append('<img src="'+apiData.hits[index].fll+'" />');
+			  createMarker(apiData.hits[index].loc.lat,apiData.hits[index].loc.lon);
+			  count++
+			  console.log(count);
 		  });
 	});
+
 }
+

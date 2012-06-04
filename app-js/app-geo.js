@@ -58,11 +58,11 @@ function createMarker(lat, lon){
 
 	var markerOptions = {
 		strokeWeight: 0,
-		fillColor: "#00FFFF",
+		fillColor: "#FF0000",
 		fillOpacity: 1,
 		map: map,
 		center: new google.maps.LatLng(lat, lon),
-		radius: 10
+		radius: 45
 	};
 
 	circ = new google.maps.Circle(markerOptions);
