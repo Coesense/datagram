@@ -13,8 +13,10 @@
 <link rel="icon" type="image/png" href="app-assets/favicon.png" />
 
 <!--SCRIPT-->
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB_JMyRnHNPwsnCUhWAJTYhV3xx3VTdhWA&sensor=false" type="text/javascript"></script>
 <script src="app-js/app-jquery.js" type="application/javascript"></script>
-<script src="app-js/app-raphael.js" type="application/javascript"></script>
+<!-- <script src="app-js/app-raphael.js" type="application/javascript"></script> -->
+<script src="app-js/app-geo.js" type="application/javascript"></script>
 <script src="app-js/app-main.js" type="application/javascript"></script>
 
 <!--TITLE-->
@@ -28,7 +30,7 @@
 <body>
 
     <header>
-        <h1>DATAVIZ</h1>
+        <h1>DATAVIZUALISATION</h1>
         <em>Where your favorites pics are !</em>
     </header>
 	

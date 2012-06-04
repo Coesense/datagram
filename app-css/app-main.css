@@ -39,6 +39,8 @@ nav,header {
 	box-shadow: 1px 1px 1px #222;
 }
 
+#map { width: 100%; height: 600px; }
+
 nav { border-bottom:1px solid #555; border-top:1px solid #555; }
 
 	nav #hashs { 
@@ -59,7 +61,7 @@ nav { border-bottom:1px solid #555; border-top:1px solid #555; }
 	}
 #button { cursor:pointer; }
 #main { text-align:center; }
-img {
+#main img {
 	border:8px solid #555; width:350px; margin:5px; 
 	-webkit-box-shadow: 3px 3px 1px #222;
 	-moz-box-shadow: 3px 3px 1px #222;
