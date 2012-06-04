@@ -1,9 +1,5 @@
 var apiSrc;
 
-$('#button').live("click", function(){ 
-	getData();
-});
-
 $('.radio').live("click", function(){ 
 	apiSrc = $(this).val();
 	getData();
