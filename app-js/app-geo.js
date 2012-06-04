@@ -1,3 +1,5 @@
+var map;
+
 function initialize() {	
 	
 	var mapStyle = [
@@ -38,6 +40,7 @@ function initialize() {
 			zoom: 13,
 			center: new google.maps.LatLng(48.856609, 2.348976),
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
+			disableDefaultUI: true,
 			mapTypeControlOptions: {
       			mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'grey_scale']
     		}
@@ -49,6 +52,20 @@ function initialize() {
 	map.mapTypes.set('grey_scale', greyScale);
 	map.setMapTypeId('grey_scale');
 
+}
+
+function createMarker(lat, lon){
+
+	var markerOptions = {
+		strokeWeight: 0,
+		fillColor: "#00FFFF",
+		fillOpacity: 1,
+		map: map,
+		center: new google.maps.LatLng(lat, lon),
+		radius: 10
+	};
+
+	circ = new google.maps.Circle(markerOptions);
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
