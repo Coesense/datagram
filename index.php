@@ -40,12 +40,20 @@
     <nav>
     <form id="search" action="javascript:getData();">
         <ul>
-            <li><span>Twimg</span><div class="radio"></div><input type="radio" class="radio" name="service" value="twimg" /></li>
-            <li><span>Instagram</span><input type="radio" class="radio" name="service" value="instagram" /></li>
-            <li><span>twitter</span><input type="radio" class="radio" name="service" value="twitter" /></li>
-            <li><span>Yfrog</span><input type="radio" class="radio" name="service" value="yfrog" /></li>
+            <li>
+                <div id="instagram" class="radio"></div>
+                <span>Insta</span>
+            </li>
+            <li>
+                <div id="twimg" class="radio"></div>
+                <span>Twimg</span>
+            </li>
+            <li>
+                <div id="yfrog" class="radio"></div>
+                <span>Yfrog</span>
+            </li>
         </ul>
-        <input placeholder="hastags separate /w spaces" type="text" id="hashs" />
+        <input placeholder="tags separate /w spaces" type="text" id="hashs" />
         <div style="clear:both;"></div>
     </form>
     </nav>

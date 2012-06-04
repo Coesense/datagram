@@ -58,7 +58,7 @@ function createMarker(lat, lon){
 
 	var markerOptions = {
 		strokeWeight: 0,
-		fillColor: "#FF0000",
+		fillColor: "#00AAFF",
 		fillOpacity: 1,
 		map: map,
 		center: new google.maps.LatLng(lat, lon),

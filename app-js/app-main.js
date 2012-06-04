@@ -2,13 +2,13 @@ var apiSrc;
 var count = 0;
 
 $('.radio').live("click", function(){ 
-	apiSrc = $(this).val();
+	apiSrc = $(this).attr('id');
 	getData();
 });
 
 function getData(){
 	$('#main').empty();
-	$('#main').append('<img src="app-img/loader.gif" />');
+	$('#main').append('<div id="loader" src="app-img/loader.gif"> </div>');
 	
 	var apiData;
 	var apiHash = $('#hashs').val();
