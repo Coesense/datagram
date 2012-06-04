@@ -39,13 +39,14 @@
 
     <nav>
     <form id="search" action="javascript:getData();">
-	<input placeholder="hastags separate /w spaces" type="text" id="hashs" />
         <ul>
             <li><span>Twimg</span><input type="radio" class="radio" name="service" value="twimg" /></li>
             <li><span>Instagram</span><input type="radio" class="radio" name="service" value="instagram" /></li>
             <li><span>twitter</span><input type="radio" class="radio" name="service" value="twitter" /></li>
             <li><span>Yfrog</span><input type="radio" class="radio" name="service" value="yfrog" /></li>
         </ul>
+        <input placeholder="hastags separate /w spaces" type="text" id="hashs" />
+        <div style="clear:both;"></div>
     </form>
     </nav>
     <div id="main"></div>
