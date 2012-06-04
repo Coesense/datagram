@@ -40,7 +40,7 @@
     <nav>
     <form id="search" action="javascript:getData();">
         <ul>
-            <li><span>Twimg</span><input type="radio" class="radio" name="service" value="twimg" /></li>
+            <li><span>Twimg</span><div class="radio"></div><input type="radio" class="radio" name="service" value="twimg" /></li>
             <li><span>Instagram</span><input type="radio" class="radio" name="service" value="instagram" /></li>
             <li><span>twitter</span><input type="radio" class="radio" name="service" value="twitter" /></li>
             <li><span>Yfrog</span><input type="radio" class="radio" name="service" value="yfrog" /></li>

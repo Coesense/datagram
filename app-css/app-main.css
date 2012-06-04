@@ -32,7 +32,7 @@ body { width:100%; height:100%; background:#333; font-family: 'Ubuntu Mono', san
 form { width:700px; margin: auto; padding: 15px; }
 
 nav,header { 
-	width:100%; height:auto; padding:20px 0 0 0; margin:0 0 20px 0; 
+	width:100%; height:auto; padding:20px 0 0 0; margin:0 0 1px 0; 
 	text-align:center; background:#454545; border-bottom:1px solid #555; 
 	-webkit-box-shadow: 1px 1px 1px #222;
 	-moz-box-shadow: 1px 1px 1px #222;
@@ -52,11 +52,9 @@ header em {
 	padding: 10px 0 20px 0; font-size:1.2em;
 }
 
-nav { border-bottom:1px solid #555; border-top:1px solid #555; padding:0;}
+nav { border-bottom:1px solid #555; border-top:1px solid #555; padding:0; margin: 1px 0 10px 0;}
 
 #map { width: 100%; height: 600px; }
-
-nav { border-bottom:1px solid #555; border-top:1px solid #555; }
 
 
 	nav #hashs { 
@@ -76,7 +74,38 @@ nav { border-bottom:1px solid #555; border-top:1px solid #555; }
 		color:#999;
 	}
 
-.radio {  }
+.radio { 
+	width:15px; height:15px; 
+	border-radius:25px; border:10px solid #333; 
+	margin:auto;
+	-webkit-box-shadow:inset 0px 0px 3px #111;
+	-moz-box-shadow:inset 0px 0px 3px #111;
+	-o-box-shadow:inset 0px 0px 3px #111;
+	-ms-box-shadow:inset 0px 0px 3px #111;
+	box-shadow:inset 0px 0px 3px #111;
+
+	-webkit-box-shadow: 0px 0px 1px #666;
+	-moz-box-shadow: 0px 0px 1px #666;
+	-o-box-shadow: 0px 0px 1px #666;
+	-ms-box-shadow: 0px 0px 1px #666;
+	box-shadow: 0px 0px 1px #666; 
+}
+
+.radio:hover, .hover:active, .hover:focus {
+	border:10px solid #18A3C3;
+	cursor:pointer;
+	-webkit-box-shadow:inset 0px 0px 3px #1F7EC7;
+	-moz-box-shadow:inset 0px 0px 3px #1F7EC7;
+	-o-box-shadow:inset 0px 0px 3px #1F7EC7;
+	-ms-box-shadow:inset 0px 0px 3px #1F7EC7;
+	box-shadow:inset 0px 0px 3px #1F7EC7;
+
+	-webkit-box-shadow: 0px 0px 1px #00FFEC;
+	-moz-box-shadow: 0px 0px 1px #00FFEC;
+	-o-box-shadow: 0px 0px 1px #00FFEC;
+	-ms-box-shadow: 0px 0px 1px #00FFEC;
+	box-shadow: 0px 0px 1px #00FFEC;
+}
 
 #main { text-align:center; }
 #main img {
