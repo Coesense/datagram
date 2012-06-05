@@ -39,7 +39,7 @@ function initialize() {
 	//options of the map
 	var opt = {
 			zoom: 13,
-			scrollwhell: false,
+			scrollwheel: false,
 			center: new google.maps.LatLng(48.856609, 2.348976),
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
 			disableDefaultUI: true,
