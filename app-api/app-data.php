@@ -16,7 +16,7 @@ class data {
 		curl_setopt($c, CURLOPT_TIMEOUT,15); 
 		curl_setopt($c, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($c, CURLOPT_HEADER, false);
-		return curl_exec($c);	
+		return curl_exec($c);
 	}
 	
 	/**
