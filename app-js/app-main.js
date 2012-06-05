@@ -13,7 +13,7 @@ function getData(){
 	var apiData;
 	var apiHash = $('#hashs').val();
 	
-	if(apiSrc==""||apiSrc="instagram"){apiSrc = "instagram"; apiColor = '#ff0000';}
+	if(apiSrc==""||apiSrc=="instagram"){apiSrc = "instagram"; apiColor = '#ff0000';}
 	else if(apiSrc=="twimg"){apiColor = '#00ff00';}
 	else {apiColor = '#0000ff';}
 

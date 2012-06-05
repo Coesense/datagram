@@ -39,7 +39,7 @@ function initialize() {
 	//options of the map
 	var opt = {
 			zoom: 13,
-			scrollwhell: false,
+			scrollwheel: false,
 			center: new google.maps.LatLng(48.856609, 2.348976),
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
 			disableDefaultUI: true,
@@ -56,7 +56,7 @@ function initialize() {
 
 }
 
-function createMarker(lat, lon, color){
+function createMarker(lat, lon, color, href){
 	var markerOptions = {
 		strokeWeight: 0,
 		fillColor: color,
@@ -67,6 +67,20 @@ function createMarker(lat, lon, color){
 	};
 
 	circ = new google.maps.Circle(markerOptions);
+
+	// href = 'https://si0.twimg.com/profile_images/2191094345/DSC_3156_normal.png';
+
+	// var cont = '<img src="'+href+'" />';
+
+	// var infowindow = new google.maps.InfoWindow({
+	//     content: cont
+	// });
+
+	// google.maps.event.addListener(circ, 'click', function() {
+	// 	infowindow.setPosition(circ.getCenter());
+	// 	infowindow.open(map);
+	// });
+
 	circTab.push(circ);
 }
 
