@@ -1,4 +1,5 @@
 var map;
+var circTab = [];
 
 function initialize() {	
 	
@@ -54,11 +55,10 @@ function initialize() {
 
 }
 
-function createMarker(lat, lon){
-
+function createMarker(lat, lon, color){
 	var markerOptions = {
 		strokeWeight: 0,
-		fillColor: "#00AAFF",
+		fillColor: color,
 		fillOpacity: 1,
 		map: map,
 		center: new google.maps.LatLng(lat, lon),
@@ -66,6 +66,16 @@ function createMarker(lat, lon){
 	};
 
 	circ = new google.maps.Circle(markerOptions);
+	circTab.push(circ);
+}
+
+function deleteMarker() {
+	if (circTab) {
+		for (i in circTab) {
+			circTab[i].setMap(null);
+		}
+		circTab.length = 0;
+	}
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
