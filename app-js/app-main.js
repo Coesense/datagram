@@ -9,10 +9,14 @@ $('.radio').live("click", function(){
 $('#scroll').live("click", function(){
 	$.scrollTo($('#main'), 800);
 });
+$('#scrollUp').live("click", function(){
+	$.scrollTo($('header'), 800);
+});
 
 function getData(){
 	deleteMarker();
 	$('#main').empty();
+	$('#bottom').empty();
 	$('#main').append('<div id="loader" src="app-img/loader.gif"> </div>');
 	$('#loader').hide();
 	$('#loader').fadeIn('fast');
@@ -20,9 +24,9 @@ function getData(){
 	var apiData;
 	var apiHash = $('#hashs').val();
 	
-	if(apiSrc==""||apiSrc=="instagram"){apiSrc = "instagram"; apiColor = '#ff0000';}
-	else if(apiSrc=="twimg"){apiColor = '#00ff00';}
-	else {apiColor = '#0000ff';}
+	if(apiSrc==""||apiSrc=="instagram"){apiSrc = "instagram"; apiColor = '#009B95';}
+	else if(apiSrc=="twimg"){apiColor = '#B70094';}
+	else {apiColor = '#FFDE00';}
 
 	$.ajax({
 	  type: "POST",
@@ -30,12 +34,14 @@ function getData(){
 	  data: { hash: apiHash, src: apiSrc, loc:"[48.856609,2.348976,5.0,3.0]" }
 	}).success(function(msg) {
 		$('#main').empty();
+		$('#bottom').append('<footer><a href="#" id="scrollUp"></a></footer>');
 		apiData = jQuery.parseJSON(msg);
 		  $.each(msg, function(index, value) {
 		  	  createMarker(apiData.hits[index].loc.lat,apiData.hits[index].loc.lon,apiColor);
 			  $('#main').append('<img src="'+apiData.hits[index].fll+'" />');
 		  });
 	});
+
 
 }
 

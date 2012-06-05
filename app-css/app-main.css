@@ -31,7 +31,7 @@ body { width:100%; height:100%; background:#333; font-family: 'Ubuntu Mono', san
 
 form { width:575px; margin: auto; padding: 15px; }
 
-nav,header { 
+nav,header,footer { 
 	width:100%; height:auto; padding:20px 0 0 0; margin:0 0 1px 0; 
 	text-align:center; background:#454545; border-bottom:1px solid #555; 
 	-webkit-box-shadow: 1px 1px 1px #222;
@@ -60,6 +60,14 @@ header em {
 	top:25px;
 }
 
+#scrollUp {
+	width:50px; height:50px; background:url('../app-img/map.png') no-repeat center top;
+	margin: auto; display: block;
+	position: relative;
+	z-index:10;
+	top:-45px;
+}
+
 nav { border-bottom:1px solid #555; border-top:1px solid #555; padding:0; margin: 1px 0 10px 0;}
 
 #map { width: 100%; height: 600px; }
@@ -82,7 +90,7 @@ nav { border-bottom:1px solid #555; border-top:1px solid #555; padding:0; margin
 		color:#999; margin:10px 0 0 0;
 	}
 
-.radio { 
+.radio, #instagram, #twimg, #yfrog { 
 	width:15px; height:15px; 
 	border-radius:25px; border:10px solid #333; 
 	margin:auto;
@@ -96,23 +104,30 @@ nav { border-bottom:1px solid #555; border-top:1px solid #555; padding:0; margin
 	-moz-box-shadow: 0px 0px 1px #666;
 	-o-box-shadow: 0px 0px 1px #666;
 	-ms-box-shadow: 0px 0px 1px #666;
-	box-shadow: 0px 0px 1px #666; 
+	box-shadow: 0px 0px 1px #666;
+
+	-webkit-transition: all .2s ease-in-out;
+	   -moz-transition: all .2s ease-in-out;
+	     -o-transition: all .2s ease-in-out;
+	    -ms-transition: all .2s ease-in-out;
+	        transition: all .2s ease-in-out;
+	    
 }
 
-.radio:hover, .hover:active, .hover:focus {
-	border:10px solid #18A3C3;
+.radio:hover, .radio:active, .radio:focus {
 	cursor:pointer;
-	-webkit-box-shadow:inset 0px 0px 3px #1F7EC7;
-	-moz-box-shadow:inset 0px 0px 3px #1F7EC7;
-	-o-box-shadow:inset 0px 0px 3px #1F7EC7;
-	-ms-box-shadow:inset 0px 0px 3px #1F7EC7;
-	box-shadow:inset 0px 0px 3px #1F7EC7;
+}
 
-	-webkit-box-shadow: 0px 0px 1px #00FFEC;
-	-moz-box-shadow: 0px 0px 1px #00FFEC;
-	-o-box-shadow: 0px 0px 1px #00FFEC;
-	-ms-box-shadow: 0px 0px 1px #00FFEC;
-	box-shadow: 0px 0px 1px #00FFEC;
+#instagram:hover, #instagram:active, #instagram:focus {
+	border:10px solid #009B95; 
+}
+
+#twimg:hover, #twimg:active, #twimg:focus {
+	border:10px solid #B70094; 
+}
+
+#yfrog:hover, #yfrog:active, #yfrog:focus {
+	border:10px solid #FFDE00; 
 }
 
 #main { text-align:center; }
@@ -136,3 +151,13 @@ nav { border-bottom:1px solid #555; border-top:1px solid #555; padding:0; margin
 ul { float:left; }
 ul li { list-style:none; display:inline-block; padding:5px 25px 5px 2px;  }
 ul li span { display:block; margin:5px 0 0 0;}
+
+footer { 
+	border-bottom: 0; height:25px;
+	margin: 30px 0 0 0;
+	-webkit-box-shadow: -1px -1px 1px #222;
+	-moz-box-shadow: -1px -1px 1px #222;
+	-o-box-shadow: -1px -1px 1px #222;
+	-ms-box-shadow: -1px -1px 1px #222;
+	box-shadow: -1px -1px 1px #222;
+}

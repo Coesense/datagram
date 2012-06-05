@@ -60,6 +60,6 @@
     </form>
     </nav>
     <div id="main"></div>
-
+    <div id="bottom"></div>
 </body>
 </html>
