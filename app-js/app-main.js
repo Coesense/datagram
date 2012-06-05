@@ -6,9 +6,16 @@ $('.radio').live("click", function(){
 	getData();
 });
 
+$('#scroll').live("click", function(){
+	$.scrollTo($('#main'), 800);
+});
+
 function getData(){
+	deleteMarker();
 	$('#main').empty();
 	$('#main').append('<div id="loader" src="app-img/loader.gif"> </div>');
+	$('#loader').hide();
+	$('#loader').fadeIn('fast');
 	
 	var apiData;
 	var apiHash = $('#hashs').val();
@@ -25,8 +32,8 @@ function getData(){
 		$('#main').empty();
 		apiData = jQuery.parseJSON(msg);
 		  $.each(msg, function(index, value) {
+		  	  createMarker(apiData.hits[index].loc.lat,apiData.hits[index].loc.lon,apiColor);
 			  $('#main').append('<img src="'+apiData.hits[index].fll+'" />');
-			  createMarker(apiData.hits[index].loc.lat,apiData.hits[index].loc.lon,apiColor);
 		  });
 	});
 
