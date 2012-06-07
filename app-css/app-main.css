@@ -75,7 +75,7 @@ nav { border-bottom:1px solid #555; border-top:1px solid #555; padding:0; margin
 
 	nav #hashs { 
 		height:25px; width:300px; font-size:20px;
-		border: 0; padding: 10px; float:right;
+		border: 0; padding: 10px; float:left;
 		border-bottom:1px solid #666; background:#222;
 		-webkit-box-shadow:inset 1px 1px 1px #222;
 		-moz-box-shadow:inset 1px 1px 1px #222;
@@ -148,7 +148,7 @@ nav { border-bottom:1px solid #555; border-top:1px solid #555; padding:0; margin
 	box-shadow: 3px 3px 1px #222;
 }
 
-ul { float:left; }
+ul { float:right; }
 ul li { list-style:none; display:inline-block; padding:5px 25px 5px 2px;  }
 ul li span { display:block; margin:5px 0 0 0;}
 

@@ -31,7 +31,7 @@
 <body>
 
     <header>
-        <h1>DATAVIZUALISATION</h1>
+        <h1>DATA'GRAM</h1>
         <em>Where your favorites pics are !</em>
         <a href="#" id="scroll"></a>
     </header>
@@ -41,6 +41,7 @@
 
     <nav>
     <form id="search" action="javascript:getData();">
+        <input placeholder="tags separate /w spaces" type="text" id="hashs" />
         <ul>
             <li>
                 <div id="instagram" class="radio"></div>
@@ -55,7 +56,6 @@
                 <span>Yfrog</span>
             </li>
         </ul>
-        <input placeholder="tags separate /w spaces" type="text" id="hashs" />
         <div style="clear:both;"></div>
     </form>
     </nav>
