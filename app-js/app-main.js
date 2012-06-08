@@ -18,28 +18,28 @@ $('#scrollUp').live("click", function(){
 });
 
 $(document).ready(function(){
-	var r = Raphael('diagram', 600, 150),
+	var r = Raphael('diagram', 600, 250),
 		rad = 73,
 		defaultText = '0',
 		speed = 250;
 			
-	circInsta = r.circle(70, 65, radInsta).attr({ stroke: 'none', fill: '#cb363b', opacity: 0.5 });
+	circInsta = r.circle(70, 100, radInsta).attr({ stroke: 'none', fill: '#cb363b', opacity: 0.5 });
 			
-	titleInsta = r.text(70, 62, defaultText).attr({
+	titleInsta = r.text(70, 98, defaultText).attr({
 		font: '20px Ubuntu Mono',
 		fill: '#fff'
 	}).toFront();
 
-	circTwimg = r.circle(270, 65, radTwimg).attr({ stroke: 'none', fill: '#3399cc', opacity: 0.5 });
+	circTwimg = r.circle(270, 100, radTwimg).attr({ stroke: 'none', fill: '#3399cc', opacity: 0.5 });
 			
-	titleTwimg = r.text(270, 62, defaultText).attr({
+	titleTwimg = r.text(270, 98, defaultText).attr({
 		font: '20px Ubuntu Mono',
 		fill: '#fff'
 	}).toFront();
 
-	circYfrog = r.circle(470, 65, radYfrog).attr({ stroke: 'none', fill: '#33cc77', opacity: 0.5 });
+	circYfrog = r.circle(470, 100, radYfrog).attr({ stroke: 'none', fill: '#33cc77', opacity: 0.5 });
 			
-	titleYfrog = r.text(470, 62, defaultText).attr({
+	titleYfrog = r.text(470, 98, defaultText).attr({
 		font: '20px Ubuntu Mono',
 		fill: '#fff'
 	}).toFront();
@@ -47,11 +47,13 @@ $(document).ready(function(){
 
 
 function updateCirc(i, t, y){
-	circInsta.animate({ opacity: 1, r: i }, 500, '<');
+	var total = i+t+y;
+
+	circInsta.stop().animate({ opacity: 1, r: (i/total)*100 }, 500, '<');
 	titleInsta.attr({ text: i });
-	circTwimg.animate({ opacity: 1, r: t }, 500, '<');
+	circTwimg.stop().animate({ opacity: 1, r: (t/total)*100 }, 500, '<');
 	titleTwimg.attr({ text: t });
-	circYfrog.animate({ opacity: 1, r: y }, 500, '<');
+	circYfrog.stop().animate({ opacity: 1, r: (y/total)*100 }, 500, '<');
 	titleYfrog.attr({ text: y });
 }
 
