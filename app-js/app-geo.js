@@ -1,6 +1,5 @@
 var map,
 	markerTab = [],
-	allMarker = [],
 	infowindow = null;
 
 function initialize() {	
@@ -75,30 +74,19 @@ function createMarker(lat, lon, color, href, full){
 		FULL: full
 	};
 
-	allMarker.push(markerOptions);
-}
+	m = new google.maps.Marker(markerOptions);
 
-function displayMarker(){
-	for (var i = 0; i < allMarker.length; i++) {
-		setTimeout(function() {
-		    m = new google.maps.Marker(allMarker[i]);
+	var th;
 
-		    var th;
+	markerOptions.HREF == '' ? th = markerOptions.FULL : th = markerOptions.HREF;
 
-		    allMarker[i].HREF == '' ? th = allMarker[i].FULL : th = allMarker[i].HREF;
+	google.maps.event.addListener(m, 'click', function () {
+		var cont = '<img src="'+markerOptions.HREF+'" />';
+		infowindow.setContent(cont);
+		infowindow.open(map, this);
+	});
 
-		    google.maps.event.addListener(m, 'click', function () {
-		    	var cont = '<img src="'+allMarker[i].HREF+'" />';
-		    	infowindow.setContent(cont);
-		    	infowindow.open(map, this);
-		    });
-
-		    markerTab.push(m);
-		}, i * 200);
-		
-	};
-	console.log(allMarker.length);
-	
+	markerTab.push(m);
 }
 
 function deleteMarker() {
@@ -107,10 +95,6 @@ function deleteMarker() {
 			markerTab[i].setMap(null);
 		}
 		markerTab.length = 0;
-	}
-
-	if (allMarker) {
-		allMarker.length = 0;
 	}
 }
 

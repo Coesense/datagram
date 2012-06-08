@@ -42,10 +42,7 @@ function getData(){
 			$img.attr('src', apiData.hits[index].fll).load(function() {
 				createMarker(apiData.hits[index].loc.lat,apiData.hits[index].loc.lon,apiColor,apiData.hits[index].thb,apiData.hits[index].fll);
 				$('#main').append($(this));
-
 			});
-			console.log('KOKOKZEROKROZEKROZEK');
-	  		displayMarker();
 	  	});
 		
 	});
