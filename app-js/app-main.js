@@ -1,4 +1,4 @@
-var apiSrc = array[];
+var apiSrc;
 var apiColor;
 
 $('.radio').live("click", function(){
@@ -11,7 +11,7 @@ $('#scroll').live("click", function(){
 	$.scrollTo($('#main'), 800);
 });
 $('#scrollUp').live("click", function(){
-	$.scrollTo($('header'), 800);
+	$.scrollTo($('header'), 1200);
 });
 
 function getData(){
