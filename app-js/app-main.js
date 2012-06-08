@@ -1,5 +1,8 @@
 var apiSrc;
 var apiColor;
+var circInsta, circTwimg, circYfrog;
+var radInsta = 35, radTwimg = 35, radYfrog = 35;
+var titleInsta, titleTwimg, titleYfrog;
 
 $('.radio').live("click", function(){
 	apiSrc = $(this).attr('id');
@@ -13,6 +16,44 @@ $('#scroll').live("click", function(){
 $('#scrollUp').live("click", function(){
 	$.scrollTo($('header'), 1200);
 });
+
+$(document).ready(function(){
+	var r = Raphael('diagram', 600, 150),
+		rad = 73,
+		defaultText = '0',
+		speed = 250;
+			
+	circInsta = r.circle(70, 65, radInsta).attr({ stroke: 'none', fill: '#cb363b', opacity: 0.5 });
+			
+	titleInsta = r.text(70, 62, defaultText).attr({
+		font: '20px Ubuntu Mono',
+		fill: '#fff'
+	}).toFront();
+
+	circTwimg = r.circle(270, 65, radTwimg).attr({ stroke: 'none', fill: '#3399cc', opacity: 0.5 });
+			
+	titleTwimg = r.text(270, 62, defaultText).attr({
+		font: '20px Ubuntu Mono',
+		fill: '#fff'
+	}).toFront();
+
+	circYfrog = r.circle(470, 65, radYfrog).attr({ stroke: 'none', fill: '#33cc77', opacity: 0.5 });
+			
+	titleYfrog = r.text(470, 62, defaultText).attr({
+		font: '20px Ubuntu Mono',
+		fill: '#fff'
+	}).toFront();
+})
+
+
+function updateCirc(i, t, y){
+	circInsta.animate({ opacity: 1, r: i }, 500, '<');
+	titleInsta.attr({ text: i });
+	circTwimg.animate({ opacity: 1, r: t }, 500, '<');
+	titleTwimg.attr({ text: t });
+	circYfrog.animate({ opacity: 1, r: y }, 500, '<');
+	titleYfrog.attr({ text: y });
+}
 
 function getData(){
 	deleteMarker();
