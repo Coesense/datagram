@@ -16,7 +16,7 @@
 <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB_JMyRnHNPwsnCUhWAJTYhV3xx3VTdhWA&sensor=false" type="text/javascript"></script>
 <script src="app-js/app-jquery.js" type="application/javascript"></script>
 <script src="app-js/app-scroll.js" type="application/javascript"></script>
-<!-- <script src="app-js/app-raphael.js" type="application/javascript"></script> -->
+<script src="app-js/app-raphael.js" type="application/javascript"></script>
 <script src="app-js/app-geo.js" type="application/javascript"></script>
 <script src="app-js/app-main.js" type="application/javascript"></script>
 
@@ -58,6 +58,7 @@
         </ul>
         <div style="clear:both;"></div>
     </form>
+    <div id="diagram"></div>
     </nav>
     <div id="main"></div>
     <div id="bottom"></div>
