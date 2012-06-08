@@ -1,10 +1,11 @@
 var apiSrc;
 var apiColor;
 
-$('.radio').live("click", function(){ 
+$('.radio').live("click", function(){
 	apiSrc = $(this).attr('id');
 	getData();
 });
+
 
 $('#scroll').live("click", function(){
 	$.scrollTo($('#main'), 800);
@@ -24,24 +25,30 @@ function getData(){
 	var apiData;
 	var apiHash = $('#hashs').val();
 	
-	if(apiSrc==""||apiSrc=="instagram"){apiSrc = "instagram"; apiColor = '#009B95';}
-	else if(apiSrc=="twimg"){apiColor = '#B70094';}
-	else {apiColor = '#FFDE00';}
+	if(apiSrc==""||apiSrc=="instagram"){apiSrc = "instagram"; apiColor = 'insta';}
+	else if(apiSrc=="twimg"){apiColor = 'twimg';}
+	else {apiColor = 'yfrog';}
 
 	$.ajax({
-	  type: "POST",
-	  url: "app-api/app-data.php",
-	  data: { hash: apiHash, src: apiSrc, loc:"[48.856609,2.348976,5.0,3.0]" }
+		type: "POST",
+		url: "app-api/app-data.php",
+		data: { hash: apiHash, src: apiSrc, loc:"[48.856609,2.348976,5.0,3.0]" }
 	}).success(function(msg) {
 		$('#main').empty();
 		$('#bottom').append('<footer><a href="#" id="scrollUp"></a></footer>');
 		apiData = jQuery.parseJSON(msg);
-		  $.each(msg, function(index, value) {
-		  	  createMarker(apiData.hits[index].loc.lat,apiData.hits[index].loc.lon,apiColor);
-			  $('#main').append('<img src="'+apiData.hits[index].fll+'" />');
-		  });
+		$.each(msg, function(index, value) { 
+			$img = $('<img />');
+			$img.attr('src', apiData.hits[index].fll).load(function() {
+				createMarker(apiData.hits[index].loc.lat,apiData.hits[index].loc.lon,apiColor,apiData.hits[index].thb,apiData.hits[index].fll);
+				$('#main').append($(this));
+			});
+			return true;
+	  	});
+		console.log('KOKOKZEROKROZEKROZEK');
+	  	displayMarker();
 	});
 
-
+	
 }
 

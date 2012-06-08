@@ -1,5 +1,7 @@
-var map;
-var circTab = [];
+var map,
+	markerTab = [],
+	allMarker = [],
+	infowindow = null;
 
 function initialize() {	
 	
@@ -33,6 +35,11 @@ function initialize() {
 	  }
 	];
 
+	infowindow = new google.maps.InfoWindow({
+		content: "wait..."
+	});
+
+
 	var greyScale = new google.maps.StyledMapType(mapStyle,
     {name: "Grey Scale"});
 
@@ -56,40 +63,54 @@ function initialize() {
 
 }
 
-function createMarker(lat, lon, color, href){
+function createMarker(lat, lon, color, href, full){
 	var markerOptions = {
-		strokeWeight: 0,
-		fillColor: color,
-		fillOpacity: 1,
+		draggable: false,
+		animation: google.maps.Animation.DROP,
 		map: map,
+		icon: new google.maps.MarkerImage('app-img/'+color+'.png'),
 		center: new google.maps.LatLng(lat, lon),
-		radius: 45
+		position: new google.maps.LatLng(lat, lon),
+		HREF: href,
+		FULL: full
 	};
 
-	circ = new google.maps.Circle(markerOptions);
+	allMarker.push(markerOptions);
+}
 
-	// href = 'https://si0.twimg.com/profile_images/2191094345/DSC_3156_normal.png';
+function displayMarker(){
+	for (var i = 0; i < allMarker.length; i++) {
+		setTimeout(function() {
+		    m = new google.maps.Marker(allMarker[i]);
 
-	// var cont = '<img src="'+href+'" />';
+		    var th;
 
-	// var infowindow = new google.maps.InfoWindow({
-	//     content: cont
-	// });
+		    allMarker[i].HREF == '' ? th = allMarker[i].FULL : th = allMarker[i].HREF;
 
-	// google.maps.event.addListener(circ, 'click', function() {
-	// 	infowindow.setPosition(circ.getCenter());
-	// 	infowindow.open(map);
-	// });
+		    google.maps.event.addListener(m, 'click', function () {
+		    	var cont = '<img src="'+allMarker[i].HREF+'" />';
+		    	infowindow.setContent(cont);
+		    	infowindow.open(map, this);
+		    });
 
-	circTab.push(circ);
+		    markerTab.push(m);
+		}, i * 200);
+		
+	};
+	console.log(allMarker.length);
+	
 }
 
 function deleteMarker() {
-	if (circTab) {
-		for (i in circTab) {
-			circTab[i].setMap(null);
+	if (markerTab) {
+		for (i in markerTab) {
+			markerTab[i].setMap(null);
 		}
-		circTab.length = 0;
+		markerTab.length = 0;
+	}
+
+	if (allMarker) {
+		allMarker.length = 0;
 	}
 }
 

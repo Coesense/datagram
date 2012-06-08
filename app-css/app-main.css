@@ -119,15 +119,27 @@ nav { border-bottom:1px solid #555; border-top:1px solid #555; padding:0; margin
 }
 
 #instagram:hover, #instagram:active, #instagram:focus {
-	border:10px solid #009B95; 
+	border:10px solid #cb363b; 
+}
+
+.instagram {
+	border:10px solid #cb363b; 
 }
 
 #twimg:hover, #twimg:active, #twimg:focus {
-	border:10px solid #B70094; 
+	border:10px solid #3399cc; 
+}
+
+.twimg {
+	border:10px solid #3399cc; 
 }
 
 #yfrog:hover, #yfrog:active, #yfrog:focus {
-	border:10px solid #FFDE00; 
+	border:10px solid #33cc77; 
+}
+
+.yfrog {
+	border:10px solid #33cc77; 
 }
 
 #main { text-align:center; }
