@@ -1,4 +1,4 @@
-var apiSrc;
+var apiSrc = array[];
 var apiColor;
 
 $('.radio').live("click", function(){
@@ -42,11 +42,12 @@ function getData(){
 			$img.attr('src', apiData.hits[index].fll).load(function() {
 				createMarker(apiData.hits[index].loc.lat,apiData.hits[index].loc.lon,apiColor,apiData.hits[index].thb,apiData.hits[index].fll);
 				$('#main').append($(this));
+
 			});
-			return true;
+			console.log('KOKOKZEROKROZEKROZEK');
+	  		displayMarker();
 	  	});
-		console.log('KOKOKZEROKROZEKROZEK');
-	  	displayMarker();
+		
 	});
 
 	
