@@ -48,11 +48,11 @@ $(document).ready(function(){
 function updateCirc(i, t, y){
 	var total = i+t+y;
 
-	circInsta.stop().animate({ opacity: 1, r: (i/total)*100 }, 500, '<');
+	circInsta.stop().animate({ opacity: 1, r: (i/total)*50 }, 500, '<');
 	titleInsta.attr({ text: i });
-	circTwimg.stop().animate({ opacity: 1, r: (t/total)*100 }, 500, '<');
+	circTwimg.stop().animate({ opacity: 1, r: (t/total)*50 }, 500, '<');
 	titleTwimg.attr({ text: t });
-	circYfrog.stop().animate({ opacity: 1, r: (y/total)*100 }, 500, '<');
+	circYfrog.stop().animate({ opacity: 1, r: (y/total)*50 }, 500, '<');
 	titleYfrog.attr({ text: y });
 }
 
