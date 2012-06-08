@@ -6,7 +6,6 @@ $('.radio').live("click", function(){
 	getData();
 });
 
-
 $('#scroll').live("click", function(){
 	$.scrollTo($('#main'), 800);
 });
@@ -47,6 +46,17 @@ function getData(){
 		
 	});
 
+	$.ajax({
+		type: "POST",
+		url: "app-api/app-count.php",
+		data: { hash: apiHash, loc:"[48.856609,2.348976,5.0,3.0]" }
+	}).success(function(msg) {
+		apiData = jQuery.parseJSON(msg);
+		$.each(msg, function(index, value) { 
+			
+	  	});
+		
+	});
 	
 }
 
