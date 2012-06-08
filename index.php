@@ -21,7 +21,7 @@
 <script src="app-js/app-main.js" type="application/javascript"></script>
 
 <!--TITLE-->
-<title>Dataviz</title>
+<title>DATA'GRAM - Where your favorites pics are !</title>
 
 <!--META-->
 <meta name="language" content="fr" />

@@ -63,6 +63,7 @@ function getData(){
 	$('#loader').fadeIn('fast');
 	
 	var apiData;
+	var apiCount;
 	var apiHash = $('#hashs').val();
 	
 	if(apiSrc==""||apiSrc=="instagram"){apiSrc = "instagram"; apiColor = 'insta';}
@@ -92,11 +93,8 @@ function getData(){
 		url: "app-api/app-count.php",
 		data: { hash: apiHash, loc:"[48.856609,2.348976,5.0,3.0]" }
 	}).success(function(msg) {
-		apiData = jQuery.parseJSON(msg);
-		$.each(msg, function(index, value) { 
-			
-	  	});
-		
+		apiCount = jQuery.parseJSON(msg);
+		updateCirc(apiCount.instagram,apiCount.twimg,apiCount.yfrog);
 	});
 	
 }
