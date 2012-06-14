@@ -21,7 +21,7 @@
 <script src="app-js/app-main.js" type="application/javascript"></script>
 
 <!--TITLE-->
-<title>DATA'GRAM - Where your favorites pics are !</title>
+<title>DATA'GRAM - Search engine for local amateur photos!</title>
 
 <!--META-->
 <meta name="language" content="fr" />
@@ -32,7 +32,7 @@
 
     <header>
         <h1>DATA'GRAM</h1>
-        <em>Where your favorites pics are !</em>
+        <em>Search engine for local amateur photos</em>
         <a href="#" id="scroll"></a>
     </header>
 	
@@ -46,6 +46,10 @@
             <li>
                 <div id="instagram" class="radio"></div>
                 <span>Insta</span>
+            </li>
+            <li>
+                <div id="foursquare" class="radio"></div>
+                <span>FoursQ</span>
             </li>
             <li>
                 <div id="twimg" class="radio"></div>

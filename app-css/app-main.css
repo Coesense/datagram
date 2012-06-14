@@ -29,7 +29,7 @@ a, a:link, a:hover, a:active, a:visited { color: inherit; text-decoration: none;
 */
 body { width:100%; height:100%; background:#333; font-family: 'Ubuntu Mono', sans-serif; }
 
-form { width:575px; margin: auto; padding: 15px; }
+form { width:700px; margin: auto; padding: 15px; }
 
 nav,header,footer { 
 	width:100%; height:auto; padding:20px 0 0 0; margin:0 0 1px 0; 
@@ -119,28 +119,33 @@ nav { border-bottom:1px solid #555; border-top:1px solid #555; padding:0; margin
 }
 
 #instagram:hover, #instagram:active, #instagram:focus {
-	border:10px solid #cb363b; 
+	border:10px solid #03266b; 
 }
 
 .instagram {
-	border:10px solid #cb363b; 
+	border:10px solid #03266b; 
 }
 
 #twimg:hover, #twimg:active, #twimg:focus {
-	border:10px solid #3399cc; 
+	border:10px solid #3c6fd2; 
 }
 
 .twimg {
-	border:10px solid #3399cc; 
+	border:10px solid #3c6fd2; 
 }
 
 #yfrog:hover, #yfrog:active, #yfrog:focus {
-	border:10px solid #33cc77; 
+	border:10px solid #6489d2; 
 }
 
 .yfrog {
-	border:10px solid #33cc77; 
+	border:10px solid #6489d2; 
 }
+
+#foursquare:hover, #foursquare:active, #foursquare:focus {
+	border:10px solid #083da5; 
+}
+
 
 #main { text-align:center; }
 
@@ -161,7 +166,7 @@ nav { border-bottom:1px solid #555; border-top:1px solid #555; padding:0; margin
 }
 
 ul { float:right; }
-ul li { list-style:none; display:inline-block; padding:5px 25px 5px 2px;  }
+ul li { list-style:none; display:inline-block; padding:5px 25px 5px 10px;  }
 ul li span { display:block; margin:5px 0 0 0;}
 
 footer { 

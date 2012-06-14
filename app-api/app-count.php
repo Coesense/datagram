@@ -10,11 +10,11 @@ class data {
 	* @JSON
 	*/
 	public function getData($query_tab = array()){
-		$src_tab = array('instagram','twimg','yfrog');
-		for ($i=0; $i<3; $i++) {
+		$src_tab = array('instagram','foursquare','twimg','yfrog');
+		for ($i=0; $i<4; $i++) {
 			$c = curl_init();
 			curl_setopt($c, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.7 (KHTML, like Gecko) Chrome/16.0.912.63 Safari/535.7');
-			curl_setopt($c, CURLOPT_URL, 'http://api.teleportd.com/search?user_key=c0a5082668f603d6368498b314bdc021&str='.$query_tab['hash'].'src:'.$src_tab[$i].'&loc='.$query_tab['loc']);
+			curl_setopt($c, CURLOPT_URL, 'http://api.teleportd.com/search?user_key=2992028a9d50c73d3132a3fc89221b4e&str='.$query_tab['hash'].'src:'.$src_tab[$i].'&loc='.$query_tab['loc']);
 			curl_setopt($c, CURLOPT_TIMEOUT,15); 
 			curl_setopt($c, CURLOPT_RETURNTRANSFER, true);
 			curl_setopt($c, CURLOPT_HEADER, false);

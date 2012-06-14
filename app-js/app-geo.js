@@ -1,9 +1,28 @@
 var map,
 	markerTab = [],
-	infowindow = null;
+	infowindow = null,
+	geoCoords,
+	LatGmap,
+	LongGmap;
+
+function setGeo(){
+	if(navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(function(position) {
+		geoCoords = new Array(position.coords.latitude,position.coords.longitude);
+		LatGmap = geoCoords[0];
+		LongGmap = geoCoords[1];
+	});
+	} else {
+		geoCoords = new Array(48.856609,2.348976);
+		LatGmap = geoCoords[0];
+		LongGmap = geoCoords[1];
+	}
+}
 
 function initialize() {	
 	
+	setGeo();
+
 	var mapStyle = [
 	  {
 	    stylers: [
@@ -46,7 +65,8 @@ function initialize() {
 	var opt = {
 			zoom: 13,
 			scrollwheel: false,
-			center: new google.maps.LatLng(48.856609, 2.348976),
+			//center: new google.maps.LatLng(48.856609, 2.348976),
+			center: new google.maps.LatLng(LatGmap, LongGmap),
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
 			disableDefaultUI: true,
 			mapTypeControlOptions: {
