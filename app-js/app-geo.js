@@ -8,10 +8,9 @@ var map,
 function setGeo(){
 	if(navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function(position) {
-		geoCoords = new Array(position.coords.latitude,position.coords.longitude);
-		LatGmap = geoCoords[0];
-		LongGmap = geoCoords[1];
-	});
+		LatGmap = position.coords.latitude;
+		LongGmap = position.coords.longitude;
+		});
 	} else {
 		geoCoords = new Array(48.856609,2.348976);
 		LatGmap = geoCoords[0];
@@ -22,6 +21,7 @@ function setGeo(){
 function initialize() {	
 	
 	setGeo();
+	console.log(LatGmap+" - "+LongGmap);
 
 	var mapStyle = [
 	  {
