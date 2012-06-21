@@ -103,7 +103,7 @@ function getData(){
 	$.ajax({
 		type: "POST",
 		url: "app-api/app-data.php",
-		data: { hash: apiHash, src: apiSrc, loc:"["+geoCoords[0]+","+geoCoords[1]+",5.0,3.0]" }
+		data: { hash: apiHash, src: apiSrc, loc:"["+LatGmap+","+LongGmap+",5.0,3.0]" }
 	}).success(function(msg) {
 		$('#main').empty();
 		$('#bottom').append('<footer><a href="#" id="scrollUp"></a></footer>');

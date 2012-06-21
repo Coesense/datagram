@@ -1,26 +1,9 @@
 var map,
 	markerTab = [],
-	infowindow = null,
-	geoCoords,
-	LatGmap,
-	LongGmap;
-
-function setGeo(){
-	if(navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(function(position) {
-		LatGmap = position.coords.latitude;
-		LongGmap = position.coords.longitude;
-		});
-	} else {
-		geoCoords = new Array(48.856609,2.348976);
-		LatGmap = geoCoords[0];
-		LongGmap = geoCoords[1];
-	}
-}
+	infowindow = null;
 
 function initialize() {	
 	
-	setGeo();
 	console.log(LatGmap+" - "+LongGmap);
 
 	var mapStyle = [
@@ -62,17 +45,33 @@ function initialize() {
     {name: "Grey Scale"});
 
 	//options of the map
-	var opt = {
+	if(navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(function(position) {
+			console.log(position.coords.latitude+" - "+position.coords.longitude)
+			var opt = {
+				zoom: 13,
+				scrollwheel: false,
+				//center: new google.maps.LatLng(48.856609, 2.348976),
+				center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+				mapTypeId: google.maps.MapTypeId.ROADMAP,
+				disableDefaultUI: true,
+				mapTypeControlOptions: {
+      			mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'grey_scale']
+    			}
+			};
+		});
+	} else {
+		var opt = {
 			zoom: 13,
 			scrollwheel: false,
-			//center: new google.maps.LatLng(48.856609, 2.348976),
-			center: new google.maps.LatLng(LatGmap, LongGmap),
+			center: new google.maps.LatLng(48.856609, 2.348976),
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
 			disableDefaultUI: true,
 			mapTypeControlOptions: {
-      			mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'grey_scale']
-    		}
-	};
+  			mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'grey_scale']
+		};
+	}
+
 	
 	//starts the map
 	map = new google.maps.Map(document.getElementById('map'), opt);
