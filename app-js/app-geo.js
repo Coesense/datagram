@@ -9,6 +9,7 @@ if(navigator.geolocation) {
 		userLat = position.coords.latitude;
 		userLon = position.coords.longitude;
 		console.log("lat:"+position.coords.latitude+"\n"+"lon:"+position.coords.longitude);
+		initialize()
 	});
 }else {
 	alert('Your browser doesn\'t support geolocation');	
@@ -110,5 +111,3 @@ function deleteMarker() {
 		markerTab.length = 0;
 	}
 }
-
-google.maps.event.addDomListener(window, 'load', initialize);
