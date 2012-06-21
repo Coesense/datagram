@@ -13,7 +13,7 @@
 <link rel="icon" type="image/png" href="app-assets/favicon.png" />
 
 <!--SCRIPT-->
-<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB_JMyRnHNPwsnCUhWAJTYhV3xx3VTdhWA&sensor=false" type="text/javascript"></script>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB_JMyRnHNPwsnCUhWAJTYhV3xx3VTdhWA&sensor=true" type="text/javascript"></script>
 <script src="app-js/app-jquery.js" type="application/javascript"></script>
 <script src="app-js/app-scroll.js" type="application/javascript"></script>
 <script src="app-js/app-raphael.js" type="application/javascript"></script>
