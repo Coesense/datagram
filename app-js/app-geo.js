@@ -10,7 +10,7 @@ if(navigator.geolocation) {
 		userLon = position.coords.longitude;
 		console.log("lat:"+position.coords.latitude+"\n"+"lon:"+position.coords.longitude);
 		initialize()
-	});
+	}, initialize);
 }else {
 	alert('Your browser doesn\'t support geolocation');	
 }
