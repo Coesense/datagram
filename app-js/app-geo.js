@@ -1,8 +1,12 @@
 var map,
+	zoomLevel = 13,
 	markerTab = [],
 	infowindow = null,
-	userLat,
-	userLon;
+	defaultLat = 48.856609, defaultLon = 2.348976, //default = Paris
+	userLat, userLon,
+	zoomControl = document.createElement('div'),
+	zoomControlInc = document.createElement('div'),
+	zoomControlDec = document.createElement('div');
 
 if(navigator.geolocation) {
 	navigator.geolocation.getCurrentPosition(function(position) {
@@ -57,9 +61,9 @@ function initialize() {
 
 	//options of the map
 	var opt = {
-		zoom: 13,
+		zoom: zoomLevel,
 		scrollwheel: false,
-		center: new google.maps.LatLng(userLat == null ? 48.856609 : userLat, userLon == null ? 2.348976 : userLon),
+		center: new google.maps.LatLng(userLat == null ? defaultLat : userLat, userLon == null ? defaultLon : userLon),
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		disableDefaultUI: true,
 		mapTypeControlOptions: {
@@ -70,10 +74,27 @@ function initialize() {
 	
 	//starts the map
 	map = new google.maps.Map(document.getElementById('map'), opt);
-
+	//sets the map's style
 	map.mapTypes.set('grey_scale', greyScale);
 	map.setMapTypeId('grey_scale');
 
+	$(zoomControl).attr('id','zoomControl');
+	$(zoomControlInc).attr('id','zoomControlInc').append('+');
+	$(zoomControlDec).attr('id','zoomControlDec').append('-');
+
+	$(zoomControl).append(zoomControlInc, zoomControlDec);
+
+	zoomControl.index = 1;
+	map.controls[google.maps.ControlPosition.TOP_LEFT].push(zoomControl);
+
+
+	google.maps.event.addDomListener(zoomControlInc, 'click', function() {
+		map.setZoom(map.getZoom()+1);
+	});
+
+	google.maps.event.addDomListener(zoomControlDec, 'click', function() {
+		map.setZoom(map.getZoom()-1);
+	});
 }
 
 function createMarker(lat, lon, color, href, full){

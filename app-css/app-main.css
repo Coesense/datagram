@@ -52,7 +52,7 @@ header em {
 	padding: 10px 0 -5px 0; font-size:1.2em;
 }
 
-#scroll {
+#scrollDown {
 	width:50px; height:50px; background:url('../app-img/images.png') no-repeat center top;
 	margin: auto; display: block;
 	position: relative;
@@ -71,7 +71,58 @@ header em {
 nav { border-bottom:1px solid #555; border-top:1px solid #555; padding:0; margin: 1px 0 10px 0;}
 
 #map { width: 100%; height: 600px; }
+	
+	#zoomControl {
+		color: #999;
+		margin: 25px 0 0 25px;
+	}
 
+		#zoomControlInc {
+			width: 20px; height: 20px;
+			line-height: 20px;
+			text-align: center;
+			background-color: #454545;
+			border-top: 1px solid #eee;
+			border-right: 1px solid #eee;
+			border-left: 1px solid #eee;
+			-webkit-border-top-left-radius: 3px;
+			-webkit-border-top-right-radius: 3px;
+			-moz-border-radius-topleft: 3px;
+			-moz-border-radius-topright: 3px;
+			border-top-left-radius: 3px;
+			border-top-right-radius: 3px;
+			-webkit-transition: all .2s ease-in-out;
+			   -moz-transition: all .2s ease-in-out;
+			     -o-transition: all .2s ease-in-out;
+			    -ms-transition: all .2s ease-in-out;
+			        transition: all .2s ease-in-out;
+		}
+
+			#zoomControlInc:hover, #zoomControlDec:hover {
+				cursor: pointer;
+				color: #eee;
+			}
+
+		#zoomControlDec {
+			width: 20px; height: 20px;
+			line-height: 20px;
+			text-align: center;
+			background-color: #454545;
+			border-right: 1px solid #eee;
+			border-bottom: 1px solid #eee;
+			border-left: 1px solid #eee;
+			-webkit-border-bottom-right-radius: 3px;
+			-webkit-border-bottom-left-radius: 3px;
+			-moz-border-radius-bottomright: 3px;
+			-moz-border-radius-bottomleft: 3px;
+			border-bottom-right-radius: 3px;
+			border-bottom-left-radius: 3px;
+			-webkit-transition: all .2s ease-in-out;
+			   -moz-transition: all .2s ease-in-out;
+			     -o-transition: all .2s ease-in-out;
+			    -ms-transition: all .2s ease-in-out;
+			        transition: all .2s ease-in-out;
+		}
 
 	nav #hashs { 
 		height:25px; width:300px; font-size:20px;
@@ -169,7 +220,8 @@ ul { float:right; }
 ul li { list-style:none; display:inline-block; padding:5px 25px 5px 10px;  }
 ul li span { display:block; margin:5px 0 0 0;}
 
-footer { 
+footer {
+	display: none; 
 	border-bottom: 0; height:25px;
 	margin: 30px 0 0 0;
 	-webkit-box-shadow: -1px -1px 1px #222;

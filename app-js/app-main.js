@@ -1,19 +1,24 @@
-var apiSrc;
-var apiColor;
-var circInsta, circTwimg, circYfrog, circFour;
-var radInsta = 35, radTwimg = 35, radYfrog = 35 , radFour = 35;
-var titleInsta, titleTwimg, titleFour, titleYfrog;
+var apiSrc,
+	apiColor,
+	circInsta, circTwimg, circYfrog, circFour,
+	radInsta = 35, radTwimg = 35, radYfrog = 35 , radFour = 35,
+	titleInsta, titleTwimg, titleFour, titleYfrog;
+var documentBody = (($.browser.chrome)||($.browser.safari)) ? document.body : document.documentElement;
 
 $('.radio').live("click", function(){
 	apiSrc = $(this).attr('id');
 	getData();
 });
 
-$('#scroll').live("click", function(){
-	$.scrollTo($('#main'), 800);
+$('#scrollDown').live("click", function(){
+	//$.scrollTo($('#main'), 800);
+	$('html,body').animate({scrollTop: $('#main').offset().top}, 800);
+	return false;
 });
 $('#scrollUp').live("click", function(){
-	$.scrollTo($('header'), 1200);
+	//$.scrollTo($('header'), 1200);
+	$('html,body').animate({scrollTop: $('header').offset().top}, 1200);
+	return false;
 });
 
 /*
@@ -76,11 +81,9 @@ function updateCirc(i, f, t, y){
 
 function getData(){
 	deleteMarker();
-	$('#main').empty();
-	$('#bottom').empty();
-	$('#main').append('<div id="loader" src="app-img/loader.gif"> </div>');
-	$('#loader').hide();
-	$('#loader').fadeIn('fast');
+	$('footer').hide();
+	$('#main').empty().append('<div id="loader" src="app-img/loader.gif"> </div>');
+	$('#loader').hide().fadeIn('fast');
 	
 	var apiData;
 	var apiCount;
@@ -106,14 +109,16 @@ function getData(){
 		data: { hash: apiHash, src: apiSrc, loc:"["+userLat+","+userLon+",5.0,3.0]" }
 	}).success(function(msg) {
 		$('#main').empty();
-		$('#bottom').append('<footer><a href="#" id="scrollUp"></a></footer>');
+		$('footer').show();
 		apiData = jQuery.parseJSON(msg);
 		$.each(msg, function(index, value) { 
 			$img = $('<img />');
-			$img.attr('src', apiData.hits[index].fll).load(function() {
-				createMarker(apiData.hits[index].loc.lat,apiData.hits[index].loc.lon,apiColor,apiData.hits[index].thb,apiData.hits[index].fll);
-				$('#main').append($(this));
-			});
+			if(apiData.hits[index]){
+				$img.attr('src', apiData.hits[index].fll).load(function() {
+					createMarker(apiData.hits[index].loc.lat,apiData.hits[index].loc.lon,apiColor,apiData.hits[index].thb,apiData.hits[index].fll);
+					$('#main').append($(this));
+				});
+			}
 	  	});
 		
 	});
