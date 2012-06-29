@@ -11,12 +11,10 @@ $('.radio').live("click", function(){
 });
 
 $('#scrollDown').live("click", function(){
-	//$.scrollTo($('#main'), 800);
 	$('html,body').animate({scrollTop: $('#main').offset().top}, 800);
 	return false;
 });
 $('#scrollUp').live("click", function(){
-	//$.scrollTo($('header'), 1200);
 	$('html,body').animate({scrollTop: $('header').offset().top}, 1200);
 	return false;
 });

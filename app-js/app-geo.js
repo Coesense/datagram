@@ -2,6 +2,8 @@ var map,
 	zoomLevel = 13,
 	markerTab = [],
 	infowindow = null,
+	infoBox = null,
+	//geocoder,
 	defaultLat = 48.856609, defaultLon = 2.348976, //default = Paris
 	userLat, userLon,
 	zoomControl = document.createElement('div'),
@@ -12,8 +14,7 @@ if(navigator.geolocation) {
 	navigator.geolocation.getCurrentPosition(function(position) {
 		userLat = position.coords.latitude;
 		userLon = position.coords.longitude;
-		console.log("lat:"+position.coords.latitude+"\n"+"lon:"+position.coords.longitude);
-		initialize()
+		initialize();
 	}, initialize);
 }else {
 	alert('Your browser doesn\'t support geolocation');	
@@ -51,10 +52,11 @@ function initialize() {
 	  }
 	];
 
-	infowindow = new google.maps.InfoWindow({
-		content: "wait..."
+	//geocoder = new google.maps.Geocoder();
+	
+	infoBox = new InfoBox({
+		content: "..."
 	});
-
 
 	var greyScale = new google.maps.StyledMapType(mapStyle,
     {name: "Grey Scale"});
@@ -116,9 +118,21 @@ function createMarker(lat, lon, color, href, full){
 	markerOptions.HREF == '' ? th = markerOptions.FULL : th = markerOptions.HREF;
 
 	google.maps.event.addListener(m, 'click', function () {
-		var cont = '<img src="'+markerOptions.HREF+'" />';
-		infowindow.setContent(cont);
-		infowindow.open(map, this);
+		var cont = '<img src="'+markerOptions.HREF+'" onclick="infoBox.close()" />';
+		infoBox.setOptions({
+			alignBottom: true,
+			disableAutoPan: true,
+			content: cont,
+			pixelOffset: new google.maps.Size(-75, -25),
+			zIndex: 1,
+			boxClass: "infoBox",
+			closeBoxURL: "",
+			isHidden: false,
+			pane: "floatPane",
+			enableEventPropagation: true
+		});
+		infoBox.open(map, this);
+		map.panTo(infoBox.position_);
 	});
 
 	markerTab.push(m);
